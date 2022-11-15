@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 
 import { IRespProduct } from '../interfaces/IResProduct';
+import { Cards } from './Cards';
 
 
 export const GridCards = () => {
@@ -19,7 +20,7 @@ export const GridCards = () => {
 
     return (
         <>
-            {( respProduct.status ) ? respProduct.data.map(product => <h3 key={product._id} >{JSON.stringify(product)}</h3>) : <h1>Cargando...</h1> }
+            {( respProduct.status ) ? respProduct.data.map(product => <Cards key={product._id} product={product}/>) : <h1>Cargando...</h1> }
         </>
     )
 }
