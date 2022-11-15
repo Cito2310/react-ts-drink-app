@@ -1,12 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter } from 'react-router-dom'
-import { AppRoutes } from './AppRoutes';
+import { ProductApp } from './ProductApp';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <BrowserRouter>
-      <AppRoutes />
+      <ProductApp />
     </BrowserRouter>
-  </React.StrictMode>
+  // </React.StrictMode>
 )
