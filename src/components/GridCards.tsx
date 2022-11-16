@@ -4,6 +4,7 @@ import axios from 'axios';
 import { IRespProduct } from '../interfaces/IResProduct';
 import { Cards } from './Cards';
 
+import "../style/grid-cards-products.scss"
 
 export const GridCards = () => {
     const [respProduct, setRespProduct] = useState<IRespProduct>({status: false, data: []})
@@ -19,8 +20,8 @@ export const GridCards = () => {
     }, [])
 
     return (
-        <>
+        <section id='grid-cards-products'>
             {( respProduct.status ) ? respProduct.data.map(product => <Cards key={product._id} product={product}/>) : <h1>Cargando...</h1> }
-        </>
+        </section>
     )
 }

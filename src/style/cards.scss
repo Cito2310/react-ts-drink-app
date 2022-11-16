@@ -1,0 +1,106 @@
+// CARD STYLE
+@use "../colors.scss";
+
+.card-container {
+    border-radius: 10px;
+    border: 1px colors.$card-border-color solid;
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
+    margin: 6px;
+    min-width: 300px;
+    padding: 8px 9px 8px 12px;
+    box-shadow: rgba(0,0,0,0.2) 3px 3px 5px;
+    
+    p, button {all: unset}
+}
+
+
+// CARD DESCRIPTION STYLE
+.container-description {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    margin-right: 8px;
+    text-transform: uppercase;
+    color: colors.$card-color-text-first;
+    
+    .text-brand-card {
+        font-family: Montserrat;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+    .text-flavor-card {
+        font-size: 1.3rem;
+        margin-bottom: 4px;
+    }
+    .text-category-card {
+        color: colors.$card-color-text-secondary;
+    }
+    .text-location-card {
+        color: colors.$card-color-text-secondary;
+        font-size: 0.9rem;
+        font-style: italic;
+        font-weight: 300;
+    }
+    
+    .container-button-and-category-location {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .container-category-location {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .container-button-edit-delete {
+        align-self:flex-end;
+        display: flex;
+        
+        button {
+            aspect-ratio: 1;
+            background-color: colors.$card-background-btn; 
+            color: colors.$card-color-btn;
+            border-radius: 5px;
+            border: 1px colors.$card-border-btn solid;
+            display: flex;
+            cursor: pointer;
+            height: 1.6rem;
+            margin-left: 6px;
+            
+            i {margin: auto;}
+        }
+    }
+    
+    
+}
+
+
+// CARD AMOUNT STYLE
+.container-button-amount {
+    background-color: colors.$card-background-btn-amount;
+    border: 1px colors.$card-border-btn solid;
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    font-size: 2rem;
+    width: 44px;
+    box-shadow: rgba(0,0,0,0.2) 2px 2px 3px;
+    
+    i {
+        cursor: pointer;
+        color: colors.$card-color-btn-arrow-amount;
+        margin: auto;
+        width: 100%;
+        text-align: center;
+    }
+
+    p {
+        color: colors.$card-color-btn-amount;
+        margin: -14px auto; 
+        font-size: 2.4rem;
+        font-weight: 400;
+    }
+}
