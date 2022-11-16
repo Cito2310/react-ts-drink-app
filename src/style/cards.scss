@@ -68,9 +68,18 @@
             display: flex;
             cursor: pointer;
             height: 1.6rem;
+            transition: background-color 0.3s, color 0.3s;
             margin-left: 6px;
             
             i {margin: auto;}
+        }
+        button:hover {
+            color: colors.$card-color-btn-hover;
+            background-color: colors.$card-background-btn-hover;
+        }
+        button:active {
+            color: colors.$card-color-btn-active;
+            background-color: colors.$card-background-btn-active;
         }
     }
     
@@ -95,6 +104,7 @@
         margin: auto;
         width: 100%;
         text-align: center;
+        transition: color 0.3s;
     }
 
     p {
@@ -102,5 +112,12 @@
         margin: -14px auto; 
         font-size: 2.4rem;
         font-weight: 400;
+    }
+
+    i:hover {
+        color: colors.$card-color-btn-arrow-hover;
+    }
+    i:active {
+        color: colors.$card-color-btn-arrow-active;
     }
 }
