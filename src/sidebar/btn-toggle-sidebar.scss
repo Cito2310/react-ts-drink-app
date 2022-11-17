@@ -1,0 +1,29 @@
+@use "../colors.scss";
+
+.btn-toggle-sidebar {all: unset}
+
+.btn-toggle-sidebar {
+    left: 13px;
+    position: fixed;
+    top: 13px;
+
+    aspect-ratio: 1;
+    background-color: colors.$btn-toggle-sidebar-background;
+    border-radius: 50%;
+    color: colors.$btn-toggle-sidebar-color;
+    font-size: 1.4rem;
+    height: 2.3rem;
+    text-align: center;
+    cursor: pointer;
+
+    transition: color 0.2s, background-color 0.2s, text-shadow 0.2s;
+
+    &:hover {
+        color: colors.$btn-toggle-sidebar-color-hover;
+        background-color: colors.$btn-toggle-sidebar-background-hover;
+    }
+    &:active {
+        color: colors.$btn-toggle-sidebar-color-active;
+        background-color: colors.$btn-toggle-sidebar-background-active;
+    }
+}
