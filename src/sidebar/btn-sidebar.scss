@@ -1,8 +1,8 @@
 $width-sidebar: 300px; //Required
 
-html,body {overflow-x: hidden} //required for sidebar right
-
 .sidebar {
+  button, input, label { all: unset }
+
   background-color: lightgray;
   display: flex; //Required
   flex-direction: column; //Required
@@ -15,9 +15,6 @@ html,body {overflow-x: hidden} //required for sidebar right
 
 .sidebar.left {left: -$width-sidebar} //required - left sidebar
 .sidebar.open.left {left: 0} //Required - left sidebar
-
-.sidebar.right {right: -$width-sidebar} //required - right sidebar
-.sidebar.open.right {right: 0} //Required - right sidebar
 
 .sidebar-section-top {
   display: flex;
@@ -44,5 +41,22 @@ html,body {overflow-x: hidden} //required for sidebar right
 }
 
 .sidebar-section-container {
-  padding: 0 1em;
+  display: block;
+  font-size: 1rem;
+
+
+  button {
+    width: calc(100% - 2em);
+    font-size: 1em;
+    padding: 0.5em 1em;
+    border-bottom: 1px black solid;
+  }
+
+  .last-button {
+    border-bottom: none;
+  }
+
+  hr {
+    border: 1px black solid;
+  }
 }
