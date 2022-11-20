@@ -1,0 +1,50 @@
+// CARD STYLE
+@use "../colors.scss";
+
+.list-item {
+    display: flex;
+    background-color: white;
+    padding: 0 1.3rem;
+    justify-content: space-between;
+    border-bottom: 1px black solid;
+
+    p, button {all: unset}
+}
+
+.container-list-description {
+    display: grid;
+    
+    grid-template-columns: 5fr 5fr 3fr 2fr;
+    margin: auto 0;
+    font-size: 1.16rem;
+    width: 100%;
+    text-transform: uppercase;
+}
+
+.container-button-amount {
+    font-size: 1.4rem;
+    display: flex;
+    margin: auto 0;
+    margin-left: 0.5rem;
+    
+    i {margin: auto 0;}
+    p {width: 1.7rem; text-align: center;}
+}
+
+@media (min-width: 0px) and (max-width: 650px) {
+    .container-list-description {
+        color: green;
+        grid-template-columns: 5fr 5fr 0fr 1fr;
+
+        .text-category-list { display: none }
+    }
+}
+@media (min-width: 0px) and (max-width: 470px) {
+    .container-list-description {
+        color: blue;
+        font-size: 4vw;
+        grid-template-columns: 5fr 5fr 1fr;
+
+        .text-category-list { display: none }
+    }
+}

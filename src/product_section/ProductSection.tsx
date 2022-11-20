@@ -1,8 +1,10 @@
-import { GridCards } from '../grid_cards/GridCards';
-
-import { IRespProduct } from '../interfaces/IResProduct';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+
+import { IRespProduct } from '../interfaces/IResProduct';
+
+import { GridCards } from '../grid_cards/GridCards';
+import { GridList } from '../grid_list/GridList';
 
 export const ProductSection = () => {
     const [respProduct, setRespProduct] = useState<IRespProduct>({status: false, data: []})
@@ -19,7 +21,8 @@ export const ProductSection = () => {
 
     return (
         (respProduct.status) 
-        ? <GridCards products={respProduct.data}/>
+        // ? <GridCards products={respProduct.data}/>
+        ? <GridList products={respProduct.data}/>
         : <p>Cargando...</p>
     )
 }
