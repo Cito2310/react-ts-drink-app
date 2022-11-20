@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import { IProduct } from '../interfaces/IResProduct';
 
-import "../style/cards.scss"
+import "./cards.scss"
 
 interface props {
     product: IProduct

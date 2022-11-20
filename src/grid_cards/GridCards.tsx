@@ -4,14 +4,14 @@ import axios from 'axios';
 import { IRespProduct } from '../interfaces/IResProduct';
 import { Cards } from './Cards';
 
-import "../style/grid-cards-products.scss"
+import "./grid-cards-products.scss"
 
 export const GridCards = () => {
     const [respProduct, setRespProduct] = useState<IRespProduct>({status: false, data: []})
 
     useEffect(() => {
         const getProduct = async() => {
-            const {data} = await axios.get("https://node-ts-load-drink.onrender.com/api/product")
+            const { data } = await axios.get("https://node-ts-load-drink.onrender.com/api/product")
             return data;
         }
         getProduct()
