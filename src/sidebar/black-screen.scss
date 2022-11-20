@@ -1,0 +1,11 @@
+@use "../colors.scss";
+
+#black-screen {
+    width: 100%;
+    height: 100vh;
+    background-color: colors.$black-screen-color;
+    position: fixed;
+}
+.animate__animated.animate__fadeIn {
+    --animate-duration: 0.5s;
+  }

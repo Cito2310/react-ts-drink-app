@@ -5,6 +5,7 @@ $width-sidebar: 300px; //Required
 .sidebar {
   button, input, label { all: unset }
 
+  z-index: 2;
   background-color: colors.$sidebar-background;
   display: flex; //Required
   flex-direction: column; //Required
