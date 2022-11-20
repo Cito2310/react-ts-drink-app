@@ -1,9 +1,11 @@
+@use "../colors.scss";
+
 $width-sidebar: 300px; //Required
 
 .sidebar {
   button, input, label { all: unset }
 
-  background-color: lightgray;
+  background-color: colors.$sidebar-background;
   display: flex; //Required
   flex-direction: column; //Required
   height: 100%; //Required
@@ -41,22 +43,31 @@ $width-sidebar: 300px; //Required
 }
 
 .sidebar-section-container {
-  display: block;
+  color: colors.$sidebar-font-color;
   font-size: 1rem;
 
-
   button {
+    cursor: pointer;
     width: calc(100% - 2em);
     font-size: 1em;
     padding: 0.5em 1em;
-    border-bottom: 1px black solid;
+    border-bottom: 1px colors.$sidebar-button-separator solid;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: colors.$sidebar-btn-background-hover;
+    }
   }
 
   .last-button {
     border-bottom: none;
   }
+  
+  .select-button {
+    background-color: colors.$sidebar-btn-background-select;
+  }
 
   hr {
-    border: 1px black solid;
+    border: 1px colors.$sidebar-separator solid;
   }
 }
