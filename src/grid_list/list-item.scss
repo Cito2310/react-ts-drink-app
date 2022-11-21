@@ -3,11 +3,11 @@
 
 .list-item {
     display: flex;
-    background-color: white;
+    background-color: colors.$list-background;
     padding: 0 1.3rem;
     justify-content: space-between;
-    border-bottom: 1px black solid;
-
+    border-bottom: 1px colors.$list-text-color solid;
+    color: colors.$list-text-color;
     p, button {all: unset}
 }
 
@@ -33,7 +33,6 @@
 
 @media (min-width: 0px) and (max-width: 650px) {
     .container-list-description {
-        color: green;
         grid-template-columns: 5fr 5fr 0fr 1fr;
 
         .text-category-list { display: none }
@@ -41,7 +40,6 @@
 }
 @media (min-width: 0px) and (max-width: 470px) {
     .container-list-description {
-        color: blue;
         font-size: 4vw;
         grid-template-columns: 5fr 5fr 1fr;
 
