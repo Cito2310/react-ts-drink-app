@@ -4,6 +4,7 @@ import { contextSideBar } from './ProviderSideBarController';
 
 import "./btn-sidebar.scss"
 import "./black-screen.scss"
+import { Navigate, NavLink } from 'react-router-dom';
 
 export const SideBar = () => {
     const { sidebarOpen, toggleSidebar } = useContext(contextSideBar)
@@ -22,6 +23,7 @@ export const SideBar = () => {
                     <button className='last-button'>Añadir un nuevo producto</button>
 
                     <hr/>
+                    
                     <button>Todos los productos</button>
                     <button className='last-button'>Solo productos seleccionados</button>
 

@@ -47,7 +47,7 @@ export const ListItem = ( { product }: props ) => {
                 <p className='text-location-list'>&#35;{product.location}</p>
             </div>
 
-            <div className='container-button-amount'>
+            <div className='container-button-list-amount'>
                 <i className="fa-solid fa-chevron-left" onClick={changeSubAmount}/>
                 <p>{amount}</p>
                 <i className="fa-solid fa-chevron-right" onClick={changePlusAmount}/>

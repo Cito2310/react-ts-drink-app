@@ -5,13 +5,14 @@ import { SideBar } from './sidebar/SideBar';
 import { ProductSection } from './product_section/ProductSection';
 
 import "./config.scss"
+import { RoutesProduct } from './product_section/RoutesProduct';
 
 export const ProductApp = () => {
     return (
         <ProviderSideBar>
             <BtnToggleSidebar/>
             <SideBar/>
-            <ProductSection/>
+            <RoutesProduct/>
         </ProviderSideBar>
     )
 }

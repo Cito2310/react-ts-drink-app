@@ -1,8 +1,6 @@
 import { IProduct } from '../interfaces/IResProduct';
 import { ListItem } from './ListItem';
 
-import "./grid-list-products.scss"
-
 interface props {
     products: IProduct[]
 }
