@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useForm } from './useForm';
 
 import { IRespProduct } from '../interfaces/IResProduct';
+import { InputText } from './InputText';
 
 interface props {
     respProduct: IRespProduct,
@@ -37,22 +38,13 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
 
     return (
         <form onSubmit={onSubmit}>
-            <label>MARCA</label>
-            <input value={brand} name="brand" onChange={onInputChange}  />
+            <InputText label='MARCA' name='brand' value={brand} onInputChange={onInputChange} />
+            <InputText label='SABOR' name='flavor' value={flavor} onInputChange={onInputChange} />
+            <InputText label='TAMAÑO' name='size' value={size} onInputChange={onInputChange} />
+            <InputText label='CATEGORIA' name='category' value={category} onInputChange={onInputChange} />
+            <InputText label='UBICACION' name='location' value={location} onInputChange={onInputChange} />
 
-            <label>SABOR</label>
-            <input value={flavor} name="flavor" onChange={onInputChange}  />
-
-            <label>TAMAÑO</label>
-            <input value={size} name="size" onChange={onInputChange}  />
-
-            <label>CATEGORIA</label>
-            <input value={category} name="category" onChange={onInputChange}  />
-
-            <label>UBICACION</label>
-            <input value={location} name="location" onChange={onInputChange}  />
-
-            <input type="submit" />
+            <input className="input-submit" type="submit" />
         </form>
     )
 }
