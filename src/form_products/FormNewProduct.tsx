@@ -3,7 +3,12 @@ import axios from 'axios';
 import { useForm } from './useForm';
 
 import { IRespProduct } from '../interfaces/IResProduct';
+
 import { InputText } from './InputText';
+import { InputNumber } from './InputNumber';
+
+import "./input-style.scss";
+import "./form-product.scss";
 
 interface props {
     respProduct: IRespProduct,
@@ -24,7 +29,7 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
     } = useForm({
         brand: "",
         category: "",
-        location: "",
+        location: 0,
         flavor: "",
         size: "",
     })
@@ -37,14 +42,23 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
-            <InputText label='MARCA' name='brand' value={brand} onInputChange={onInputChange} />
-            <InputText label='SABOR' name='flavor' value={flavor} onInputChange={onInputChange} />
-            <InputText label='TAMAÑO' name='size' value={size} onInputChange={onInputChange} />
-            <InputText label='CATEGORIA' name='category' value={category} onInputChange={onInputChange} />
-            <InputText label='UBICACION' name='location' value={location} onInputChange={onInputChange} />
+        <form className='form-product' onSubmit={onSubmit}>
+            <h2 className='title-form'>NUEVO PRODUCTO</h2>
 
-            <input className="input-submit" type="submit" />
+            <div className='content-form'>
+                <InputText label='MARCA' name='brand' value={brand} onInputChange={onInputChange} />
+                <InputText label='SABOR' name='flavor' value={flavor} onInputChange={onInputChange} />
+                <InputText label='TAMAÑO' name='size' value={size} onInputChange={onInputChange} />
+                <InputText label='CATEGORIA' name='category' value={category} onInputChange={onInputChange} />
+                <InputNumber label='UBICACION' name='location' value={location} onInputChange={onInputChange} />
+            </div>
+
+            <div className='footer-form'>
+                <p className='text-warning'>La marca es necesaria !</p>
+                <input className="input-submit" value="Crear" type="submit"  />
+            </div>
+
+
         </form>
     )
 }

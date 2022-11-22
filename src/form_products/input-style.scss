@@ -1,0 +1,23 @@
+.div-input {
+    input, label {all: unset}
+
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 0.6rem;
+
+    input {
+        background-color: rgb(247, 247, 247);
+        padding: 0.2rem 0.5rem;
+        border-radius: 5px;
+        border: 1px black solid;
+    }
+}
+
+.input-submit {
+    all: unset;
+
+    padding: 0.2rem 0.5rem;
+    background-color: red;
+    border-radius: 5px;
+    border: 1px black solid;
+}
