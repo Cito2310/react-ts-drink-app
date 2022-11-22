@@ -4,7 +4,7 @@ import { BtnToggleSidebar } from './sidebar/BtnToggleSidebar';
 import { SideBar } from './sidebar/SideBar';
 
 import "./config.scss"
-import { RoutesProduct } from './product_section/RoutesProduct';
+import { RoutesProduct } from './routes/RoutesProduct';
 
 export const ProductApp = () => {
     return (

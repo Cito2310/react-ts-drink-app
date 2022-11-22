@@ -4,7 +4,9 @@ import axios from 'axios';
 
 import { IRespProduct } from '../interfaces/IResProduct';
 
-import { ProductSection } from './ProductSection';
+import { ProductSection } from '../product_section/ProductSection';
+import { FormNewProduct } from '../form_products/FormNewProduct';
+import { FormModifyProduct } from '../form_products/FormModifyProduct';
 
 export const RoutesProduct = () => {
   const [respProduct, setRespProduct] = useState<IRespProduct>({status: false, data: []})
@@ -23,6 +25,9 @@ export const RoutesProduct = () => {
     <Routes>
       <Route path='/card-product' element={<ProductSection respProduct={respProduct} typeProduct="card" />} />
       <Route path='/list-product' element={<ProductSection respProduct={respProduct} typeProduct="list" />} />
+
+      <Route path='/create-product' element={<FormNewProduct />} />
+      <Route path='/modify-product/:id' element={<FormModifyProduct />} />
 
       <Route path='/*' element={<Navigate to="/card-product" />} />
     </Routes>
