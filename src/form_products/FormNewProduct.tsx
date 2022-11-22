@@ -1,6 +1,15 @@
 import axios from 'axios';
+
 import { useForm } from './useForm';
-export const FormNewProduct = () => {
+
+import { IRespProduct } from '../interfaces/IResProduct';
+
+interface props {
+    respProduct: IRespProduct,
+    setRespProduct: React.Dispatch<React.SetStateAction<IRespProduct>>,
+}
+
+export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
     const {
         brand,
         category,
@@ -21,10 +30,10 @@ export const FormNewProduct = () => {
 
     const onSubmit = async( e: React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
-        await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState);
+        const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState);
+        setRespProduct({...respProduct, data: [...respProduct.data, data]})
         onResetForm();
     }
-
 
     return (
         <form onSubmit={onSubmit}>

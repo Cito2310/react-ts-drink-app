@@ -26,8 +26,8 @@ export const RoutesProduct = () => {
       <Route path='/card-product' element={<ProductSection respProduct={respProduct} typeProduct="card" />} />
       <Route path='/list-product' element={<ProductSection respProduct={respProduct} typeProduct="list" />} />
 
-      <Route path='/create-product' element={<FormNewProduct />} />
-      <Route path='/modify-product/:id' element={<FormModifyProduct />} />
+      <Route path='/create-product' element={<FormNewProduct respProduct={respProduct} setRespProduct={setRespProduct} />} />
+      {/* <Route path='/modify-product/:id' element={<FormModifyProduct respProduct={respProduct} setRespProduct={setRespProduct} />} /> */}
 
       <Route path='/*' element={<Navigate to="/card-product" />} />
     </Routes>
