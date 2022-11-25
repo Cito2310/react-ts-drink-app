@@ -1,14 +1,22 @@
+@use "../colors.scss";
+
 .form-product {
+    cursor: default;
+    background-color: colors.$form-background;
+    border-radius: 0.9rem;
+    color: colors.$text-color;
     display: flex;
     flex-direction: column;
     font-size: 1.16rem;
     margin: auto;
-    width: 500px;
-
+    margin-top: 2rem;
+    padding: 1rem 2rem 1.6rem;
+    width: 400px;
 
     .title-form {
         font-family: Montserrat, Poppins, "Open Sans", Roboto , Calibri, Arial, Helvetica, sans-serif;
         margin: 0 0 0.6rem;
+        color: colors.$text-title-color;
     }
     
     .content-form {}
@@ -18,9 +26,13 @@
         justify-content: flex-end;
 
         .text-warning {
-            color: red;
+            color: colors.$text-warning-color;
             margin: auto 0;
             margin-right: 0.7rem;
         }
+    }
+
+    @media (min-width: 0) and (max-width: 500px) {
+        width: calc(100% - 4rem);
     }
 }

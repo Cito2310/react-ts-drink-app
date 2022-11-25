@@ -1,23 +1,51 @@
+@use "../colors.scss";
+
 .div-input {
     input, label {all: unset}
 
     display: flex;
     flex-direction: column;
+    font-size: 1.1rem;
     margin-bottom: 0.6rem;
-
     input {
-        background-color: rgb(247, 247, 247);
-        padding: 0.2rem 0.5rem;
+        cursor: text;
+        background-color: colors.$input-background;
         border-radius: 5px;
-        border: 1px black solid;
+        border: 1px colors.$input-border solid;
+        color: colors.$input-text;
+        font-size: 1rem;
+        padding: 0.4rem 0.7rem;
+        transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+        &:focus {
+            background-color: colors.$input-background-focus;
+            color: colors.$input-text-focus;
+            border-color: colors.$input-border-focus;
+        }
     }
 }
 
 .input-submit {
     all: unset;
-
-    padding: 0.2rem 0.5rem;
-    background-color: red;
+    background-color: colors.$submit-background;
     border-radius: 5px;
-    border: 1px black solid;
+    border: 1px colors.$submit-border solid;
+    color: colors.$submit-text;
+    font-size: 1rem;
+    margin-top: 0.3rem;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+    &:hover {
+        background-color: colors.$submit-background-hover; 
+        color: colors.$submit-text-hover; 
+        border-color: colors.$submit-border-hover; 
+    }
+
+    &:active {
+        background-color: colors.$submit-background-active; 
+        color: colors.$submit-text-active; 
+        border-color: colors.$submit-border-active; 
+    }
 }

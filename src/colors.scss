@@ -54,3 +54,32 @@ $sidebar-button-separator: rgb(235, 235, 235);
     $sidebar-btn-background-hover: rgba(236, 236, 236, 1);
     // select
     $sidebar-btn-background-select: rgba(0, 0, 0, 1);
+
+
+// FORM PRODUCTS
+$form-background: rgb(241, 241, 241);
+$text-color: rgb(39, 39, 39);
+$text-warning-color: rgb(211, 51, 51);
+$text-title-color: rgb(36, 36, 36);
+
+$input-border: rgb(230, 230, 230);
+$input-text: rgb(66, 66, 66);
+$input-background: rgb(255, 255, 255);
+    // focus
+    $input-border-focus: rgba(30, 144, 255, 0.8);
+    $input-text-focus: rgb(39, 39, 39);
+    $input-background-focus: rgb(255, 255, 255);
+
+
+
+$submit-background: rgb(30, 144, 255); 
+$submit-text: rgb(255, 255, 255); 
+$submit-border: rgb(31, 134, 236); 
+    // hover
+    $submit-background-hover: rgb(26, 125, 224); 
+    $submit-text-hover: rgb(255, 255, 255); 
+    $submit-border-hover: rgb(26, 117, 207); 
+    // active
+    $submit-background-active: rgb(18, 89, 160); 
+    $submit-text-active: rgb(255, 255, 255); 
+    $submit-border-active: rgb(16, 73, 129); 
