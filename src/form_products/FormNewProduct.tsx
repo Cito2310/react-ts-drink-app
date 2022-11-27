@@ -17,6 +17,8 @@ import { InputNumber } from './InputNumber';
 import "./input-style.scss";
 import "./form-product.scss";
 
+// assets
+import loaderThreeDots from "../assets/loader-three-dots.svg"
 
 // INTERFACE PROPS
 interface props {
@@ -25,6 +27,7 @@ interface props {
 }
 
 export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
+    // controller form
     const {
         brand,
         category,
@@ -43,14 +46,27 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
         size: "",
     })
 
+    // state error
     const [stateError, setStateError] = useState({status: false, msg: ""})
 
+    // state loading request
+    const [statusLoading, setStatusLoading] = useState(false)
+
+    // on submit controller
     const onSubmit = async( e: React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         if (!checkCreateProduct(formState, setStateError)) {
-            const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState);
-            setRespProduct({...respProduct, data: [...respProduct.data, data]})
-            onResetForm();
+            try {
+                setStateError({msg: "", status: false})
+                setStatusLoading(true);
+                const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState);
+                setRespProduct({...respProduct, data: [...respProduct.data, data]});
+                setStatusLoading(false);
+                onResetForm();
+            } catch (error) {
+                setStatusLoading(false);
+                setStateError({msg: "Ocurrio un error", status: true})
+            }
         }
     }
 
@@ -68,6 +84,7 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
 
             <div className='footer-form'>
                 {(stateError.status) ? <p className='text-warning'>{stateError.msg}</p> : null}
+                {(statusLoading) ? <i className="fa-solid fa-spinner"/> : null}
                 <input className="input-submit" value="Crear" type="submit"  />
             </div>
 
