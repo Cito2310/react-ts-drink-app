@@ -55,17 +55,18 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
     // on submit controller
     const onSubmit = async( e: React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
+        // check errors in inputs
         if (!checkCreateProduct(formState, setStateError)) {
             try {
-                setStateError({msg: "", status: false})
-                setStatusLoading(true);
-                const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState);
-                setRespProduct({...respProduct, data: [...respProduct.data, data]});
-                setStatusLoading(false);
-                onResetForm();
+                setStateError({msg: "", status: false}) // remove error advert
+                setStatusLoading(true); // init loading spinner
+                const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState); // init resp data
+                setRespProduct({...respProduct, data: [...respProduct.data, data]}); 
+                setStatusLoading(false); // remove loading spinner
+                onResetForm(); // clear form
             } catch (error) {
-                setStatusLoading(false);
-                setStateError({msg: "Ocurrio un error", status: true})
+                setStatusLoading(false); // remove loading spinner
+                setStateError({msg: "Ocurrio un error", status: true}) // add error advert
             }
         }
     }
