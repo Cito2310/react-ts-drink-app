@@ -3,19 +3,19 @@ import { useState } from 'react';
 import axios from 'axios';
 
 // helpers
-import { useForm } from './useForm';
-import { checkCreateProduct } from './checkCreateProduct';
+import { useForm } from '../helpers_and_hooks/useForm';
+import { checkCreateProduct } from '../helpers_and_hooks/checkCreateProduct';
 
 // interfaces
-import { IRespProduct } from '../interfaces/IResProduct';
+import { IRespProduct } from '../../interfaces/IResProduct';
 
 // components
-import { InputText } from './InputText';
-import { InputNumber } from './InputNumber';
+import { InputText } from '../components/InputText';
+import { InputNumber } from '../components/InputNumber';
 
 // styles
-import "./input-style.scss";
-import "./form-product.scss";
+import "../styles/input-style.scss";
+import "../styles/form-product.scss";
 
 // assets
 import loaderThreeDots from "../assets/loader-three-dots.svg"

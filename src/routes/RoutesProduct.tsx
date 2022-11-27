@@ -5,8 +5,8 @@ import axios from 'axios';
 import { IRespProduct } from '../interfaces/IResProduct';
 
 import { ProductSection } from '../product_section/ProductSection';
-import { FormNewProduct } from '../form_products/FormNewProduct';
-import { FormModifyProduct } from '../form_products/FormModifyProduct';
+import { FormNewProduct } from '../form_products/screen/FormNewProduct';
+import { FormModifyProduct } from '../form_products/screen/FormModifyProduct';
 
 export const RoutesProduct = () => {
   const [respProduct, setRespProduct] = useState<IRespProduct>({status: false, data: []})
