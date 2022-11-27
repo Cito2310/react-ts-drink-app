@@ -19,37 +19,13 @@
         color: colors.$text-title-color;
     }
     
-    .content-form {}
-    
     .footer-form {
         display: flex;
         justify-content: flex-end;
         align-items: center;
-
-        .text-warning {
-            color: colors.$text-warning-color;
-            margin: auto 0;
-            margin-right: 0.7rem;
-        }
     }
 
     @media (min-width: 0) and (max-width: 500px) {
         width: calc(100% - 4rem);
     }
-}
-
-
-@keyframes animation-rotation {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
-}
-
-.fa-spinner {
-    animation: animation-rotation infinite 1s linear;
-    font-size: 1.5rem;
-    margin-right: 0.5rem;
 }

@@ -1,0 +1,25 @@
+@use "../../colors.scss";
+
+.input-submit {
+    all: unset;
+    background-color: colors.$submit-background;
+    border-radius: 5px;
+    border: 1px colors.$submit-border solid;
+    color: colors.$submit-text;
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem;
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s, color 0.2s;
+
+    &:hover {
+        background-color: colors.$submit-background-hover; 
+        color: colors.$submit-text-hover; 
+        border-color: colors.$submit-border-hover; 
+    }
+
+    &:active {
+        background-color: colors.$submit-background-active; 
+        color: colors.$submit-text-active; 
+        border-color: colors.$submit-border-active; 
+    }
+}

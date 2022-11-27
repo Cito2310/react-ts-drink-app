@@ -16,15 +16,14 @@ import { InputNumber } from '../components/InputNumber';
 // styles
 import "../styles/input-style.scss";
 import "../styles/form-product.scss";
-
-// assets
-import loaderThreeDots from "../assets/loader-three-dots.svg"
+import { BtnSubmit, LoadingSpinner, TextWarning } from '../components';
 
 // INTERFACE PROPS
 interface props {
     respProduct: IRespProduct,
     setRespProduct: React.Dispatch<React.SetStateAction<IRespProduct>>,
 }
+
 
 export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
     // controller form
@@ -35,7 +34,7 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
         location,
         size,
 
-        formState,
+        formState: formInputs,
         onInputChange,
         onResetForm,
     } = useForm({
@@ -46,27 +45,26 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
         size: "",
     })
 
-    // state error
-    const [stateError, setStateError] = useState({status: false, msg: ""})
+    // state form
+    type TFormState = { status: TStatusAvailable , msg: string }
+    type TStatusAvailable = "loading" | "error" | "none" | "okey";
 
-    // state loading request
-    const [statusLoading, setStatusLoading] = useState(false)
+    const [formState, setFormState] = useState<TFormState>({status: "none", msg: ""})
 
     // on submit controller
     const onSubmit = async( e: React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         // check errors in inputs
-        if (!checkCreateProduct(formState, setStateError)) {
+        if (!checkCreateProduct(formInputs, setFormState)) {
             try {
-                setStateError({msg: "", status: false}) // remove error advert
-                setStatusLoading(true); // init loading spinner
-                const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formState); // init resp data
+                setFormState({msg: "", status: "loading"});
+                const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formInputs);
                 setRespProduct({...respProduct, data: [...respProduct.data, data]}); 
-                setStatusLoading(false); // remove loading spinner
-                onResetForm(); // clear form
+                onResetForm();
+                setFormState({msg: "", status: "none"});
+
             } catch (error) {
-                setStatusLoading(false); // remove loading spinner
-                setStateError({msg: "Ocurrio un error", status: true}) // add error advert
+                setFormState({msg: "Ocurrio un error", status: "error"});
             }
         }
     }
@@ -84,11 +82,13 @@ export const FormNewProduct = ({respProduct, setRespProduct}: props) => {
             </div>
 
             <div className='footer-form'>
-                {(stateError.status) ? <p className='text-warning'>{stateError.msg}</p> : null}
-                {(statusLoading) ? <i className="fa-solid fa-spinner"/> : null}
-                <input className="input-submit" value="Crear" type="submit"  />
+                {
+                    (formState.status  === "error") ? <TextWarning msg={formState.msg} />
+                    : (formState.status === "loading") ? <LoadingSpinner />
+                    : null
+                }
+                <BtnSubmit />
             </div>
-
 
         </form>
     )

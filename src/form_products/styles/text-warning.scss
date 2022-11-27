@@ -1,0 +1,7 @@
+@use "../../colors.scss";
+
+.text-warning {
+    color: colors.$text-warning-color;
+    margin: auto 0;
+    margin-right: 0.7rem;
+}
