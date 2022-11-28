@@ -4,6 +4,7 @@ import axios from 'axios';
 import { IProduct } from '../interfaces/IResProduct';
 
 import "./cards.scss"
+import { NavLink } from 'react-router-dom';
 
 interface props {
     product: IProduct
@@ -59,8 +60,8 @@ export const Cards = ( { product }: props ) => {
                         <p className='text-location-card'>UBICACION &#35;{product.location}</p>
                     </div>
                     <div className='container-button-edit-delete'>
-                        <button><i className="fa-solid fa-pen"/></button>
-                        <button><i className="fa-solid fa-trash"/></button>
+                        <NavLink to={`../modify-product/${product._id}`}><i className="fa-solid fa-pen"/></NavLink>
+                        <NavLink to={"www.google.com"}><i className="fa-solid fa-trash"/></NavLink>
                     </div>
                 </div>
 

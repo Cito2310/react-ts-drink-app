@@ -13,7 +13,7 @@ export const RoutesProduct = () => {
   
   useEffect(() => {
     const getProduct = async() => {
-      const { data } = await axios.get("https://node-ts-load-drink.onrender.com/api/product")
+      const { data } = await axios.get("https://node-ts-load-drink.onrender.com/api/product");
       return data;
     }
     getProduct()
@@ -27,7 +27,7 @@ export const RoutesProduct = () => {
       <Route path='/list-product' element={<ProductSection respProduct={respProduct} typeProduct="list" />} />
 
       <Route path='/create-product' element={<FormNewProduct respProduct={respProduct} setRespProduct={setRespProduct} />} />
-      {/* <Route path='/modify-product/:id' element={<FormModifyProduct respProduct={respProduct} setRespProduct={setRespProduct} />} /> */}
+      <Route path='/modify-product/:id' element={<FormModifyProduct respProduct={respProduct} setRespProduct={setRespProduct} />} />
 
       <Route path='/*' element={<Navigate to="/card-product" />} />
     </Routes>

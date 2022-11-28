@@ -12,7 +12,7 @@
     padding: 8px 9px 8px 12px;
     box-shadow: rgba(0,0,0,0.2) 3px 3px 5px;
     
-    p, button {all: unset}
+    a, p, button {all: unset}
 }
 
 
@@ -59,7 +59,7 @@
         align-self:flex-end;
         display: flex;
         
-        button {
+        a {
             aspect-ratio: 1;
             background-color: colors.$card-background-btn; 
             color: colors.$card-color-btn;
@@ -73,11 +73,11 @@
             
             i {margin: auto;}
         }
-        button:hover {
+        a:hover {
             color: colors.$card-color-btn-hover;
             background-color: colors.$card-background-btn-hover;
         }
-        button:active {
+        a:active {
             color: colors.$card-color-btn-active;
             background-color: colors.$card-background-btn-active;
         }
