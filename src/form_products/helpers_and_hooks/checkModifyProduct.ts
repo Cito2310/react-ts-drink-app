@@ -10,13 +10,14 @@ interface IFormNewProduct {
 type TFormState = { status: TStatusAvailable , msg: string }
 type TStatusAvailable = "loading" | "error" | "none" | "okey";
 
-export const checkCreateProduct = ( 
-        formNewProduct : IFormNewProduct, 
-        setFormState: React.Dispatch<React.SetStateAction<TFormState>>
+export const checkModifyProduct = ( 
+        formModifyProduct : IFormNewProduct, 
+        setFormState: React.Dispatch<React.SetStateAction<TFormState>>,
+        oldProduct : IFormNewProduct,
 
     ): boolean => {
         
-        const { brand, category, flavor, location, size } = formNewProduct
+        const { brand, category, flavor, location, size } = formModifyProduct
         // checks brand
             // not empty
             if (brand.length === 0) {
@@ -108,6 +109,18 @@ export const checkCreateProduct = (
             //  max 99
             if (location > 50) {
                 setFormState({msg: "La ubicacion debe ser menor a 50", status: "error"})
+                return true
+            }
+
+
+        // checks not repeat
+            if (oldProduct.brand === brand && 
+                oldProduct.category === category &&
+                oldProduct.flavor === flavor &&
+                oldProduct.location === location &&
+                oldProduct.size === size
+            ) {
+                setFormState({msg: "El producto no se modifico", status: "error"})
                 return true
             }
 

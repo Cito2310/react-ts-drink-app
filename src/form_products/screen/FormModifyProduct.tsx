@@ -1,22 +1,20 @@
 // IMPORTS
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 // helpers
 import { useForm } from '../helpers_and_hooks/useForm';
-import { checkCreateProduct } from '../helpers_and_hooks/checkCreateProduct';
+import { checkModifyProduct } from '../helpers_and_hooks/checkModifyProduct';
 
 // interfaces
 import { IRespProduct } from '../../interfaces/IResProduct';
 
 // components
-import { InputText } from '../components/InputText';
-import { InputNumber } from '../components/InputNumber';
+import { BtnSubmit, LoadingSpinner, TextWarning, InputNumber, InputText } from '../components';
 
 // styles
 import "../styles/input-style.scss";
 import "../styles/form-product.scss";
-import { BtnSubmit, LoadingSpinner, TextWarning } from '../components';
 
 // INTERFACE PROPS
 interface props {
@@ -26,14 +24,8 @@ interface props {
 
 
 export const FormModifyProduct = ({respProduct, setRespProduct}: props) => {
-    // useEffect(() => {
-    //   const idParams = window.location.pathname.split("/")[2]
-    
-    // }, [])
-    
-
-    // const productModify = respProduct.data.filter( product => product._id === idParams)[0]
-    // console.log(productModify)
+    const idParams = window.location.pathname.split("/")[2]
+    const productModify = respProduct.data.filter( product => product._id === idParams)[0]
 
     // controller form
     const {
@@ -47,11 +39,11 @@ export const FormModifyProduct = ({respProduct, setRespProduct}: props) => {
         onInputChange,
         onResetForm,
     } = useForm({
-        brand: "",
-        category: "",
-        location: 1,
-        flavor: "",
-        size: "",
+        brand: productModify.brand,
+        category: productModify.category,
+        location: productModify.location,
+        flavor: productModify.flavor,
+        size: productModify.size,
     })
 
     // state form
@@ -64,10 +56,10 @@ export const FormModifyProduct = ({respProduct, setRespProduct}: props) => {
     const onSubmit = async( e: React.FormEvent<HTMLFormElement> ) => {
         e.preventDefault();
         // check errors in inputs
-        if (!checkCreateProduct(formInputs, setFormState)) {
+        if (!checkModifyProduct(formInputs, setFormState, productModify)) {
             try {
                 setFormState({msg: "", status: "loading"});
-                const { data } = await axios.post("https://node-ts-load-drink.onrender.com/api/product", formInputs);
+                const { data } = await axios.put(`https://node-ts-load-drink.onrender.com/api/product/${productModify._id}`, formInputs);
                 setRespProduct({...respProduct, data: [...respProduct.data, data]}); 
                 onResetForm();
                 setFormState({msg: "", status: "none"});
